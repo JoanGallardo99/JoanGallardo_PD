@@ -55,9 +55,9 @@ Gracias al osciloscopio podemos ver cuando la señal transmitida es inestable.
 Sabiendo esto, podemos ir haciendo experimentos empíricos para determinar cual es la máxima frecuencia que permite el microcontrolador. Empezamos con 500 ms y bajamos hasta 1 ms con la función `delayMicroseconds()`. 
 
 
-![](/Users/joangallardo99/Documents/UPC/Enginyeria/Processadors Digitals/graficinestable.jpeg)
+![Grafica inestable](D:\Documentos\UPC\Processadors digitals\graficinestable.jpeg)
 
-En este punto ya podemos apreciar que la señal que se nos muestra es inestable. Eso es debido a que el microcontrolador no "sabe" que instrucción tiene que ejecutar 
+En este punto ya podemos apreciar que la señal que se nos muestra es inestable. Eso es debido a que el microcontrolador no "sabe" que instrucción tiene que ejecutar y empieza a perderse.
 
 
 
