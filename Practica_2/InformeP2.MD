@@ -1,6 +1,6 @@
-# PRACTICA 2 : INTERRUPCIONES 
+# PRÁCTICA 2 : INTERRUPCIONES 
 
-## Practica A interrupción por GPIO 
+## Práctica A interrupción por GPIO 
 
 El montaje a realizar es el siguiente:
 
@@ -45,16 +45,16 @@ Ejemplo de código:
 
 ### INFORME
   
-Como vemos en el código proporcionado aqui arriba:
+Como vemos en el código proporcionado aquí arriba:
 1. Se genera una tupla con tres miembros:
-   - PIN: Respresenta el pin al que esta conectado nuestro "botón".
+   - PIN: Representa el pin al que está conectado nuestro "botón".
    - numberKeyPresses: Será el contador de veces que se ha pulsado el "botón".
    - pressed: Un booleano que muestra si el botón está presionado o no.
 2. Ahora inicializamos el botón al pin 18, ponemos el contador a 0 y el booleano en false.
-3. Se define una función `isr()` (interrupt service routine) que incrementa el contador y establce "pressed" en true.
+3. Se define una función `isr()` (interrupt service routine) que incrementa el contador y establece "pressed" en true.
 4. Se define la función `setup()` que inicia la comunicación serial a 115200 baudios, se configura el pin del botón y también se escribe la interrupción.
-5. En la función `loop()` se abre un "if" que verifica si el botón está presionado. Si es el caso imprime un mensaje con las veces que ha sido presionado.
-6. En está misma gunción, se implementa un temporizador que deshabilita la función de interrupción a los 60000 ms.
+5. En la función `loop()` se abre un "if" que verifica si el botón está presionado. Si es el caso, imprime un mensaje con las veces que ha sido presionado.
+6. En esta misma función, se implementa un temporizador que deshabilita la función de interrupción a los 60000 ms.
 
 Aquí adjunto una foto del mensaje que muestra la terminal:
 
@@ -62,7 +62,7 @@ Aquí adjunto una foto del mensaje que muestra la terminal:
 
 ## Practica B Interrupción por timer 
 
-El codigo de la practica es el siguiente: 
+El código de la práctica es el siguiente: 
 ```
 volatile int interruptCounter;
 int totalInterruptCounter;
@@ -116,7 +116,7 @@ Vamos a analizar el código parte por parte:
 2. Se declara un puntero en `hw_timer_t` y se inicializa con NULL. El objeto `portMUX_TYPE` se utiliza para manejar de forma segura las interrupciones.
 3. Se genera una función `onTimer()` que suma en el contador interruptCounter.
 4. En la función `setup()` 
-     - Se inicia la comunicación serie a 115200 baudios.
+     - Se inicia la comunicación série a 115200 baudios.
      - Se inicia el temporizador
      - Se llama a la rutina de interrupción `onTimer()`.
      - `timerAlarmWrite` se utiliza para establecer el valor de la alarma del temporizador. En resumen, esta linea de código configura el temporizador para generar una interrupción cada segundo (1000000 ms).
@@ -128,7 +128,7 @@ Aquí adjunto una foto del mensaje que muestra la terminal:
 ![2B](Practica2B.png)
 
 El problema de este código es que cada segundo debe comprobar si ha ocurrido alguna interrupción, en cambio, con el código de la práctica A, la interrupción se produce solo cuando se ha pulsado el botón.
-Por lo tanto, podemos decir que el código de la práctica A es mucho más eficiente, ya que la interrupción se produce solo en el caso de ser pulsado el botón y mientras no se pulse, el micropocesador puede ir ejecutando otros procedimientos.
+Por lo tanto, podemos decir que el código de la práctica A es mucho más eficiente, ya que la interrupción se produce solo en el caso de ser pulsado el botón y mientras no se pulse, el microprocesador puede ir ejecutando otros procedimientos.
 
 
-*Nota: En el código main.cpp están escritos los dos códigos utilizados en estas dos prácticas. Uno está marcado como anotación y otro no. Para que funcione uno o otro desmarca el deseado.* 
+*Nota: En el código main.cpp están escritos los dos códigos utilizados en estas dos prácticas. Uno está marcado como anotación y otro no. Para que funcione uno u otro desmarca el deseado.* 
